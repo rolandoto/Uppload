@@ -10,7 +10,10 @@ router.get('/', async (req,res,next)=>{
 
     const image = await Image.find()
     console.log(image)
-    res.render('index', {data:image});
+    res.status(201).json({
+        list:image,
+        ok:true
+    })
 })
 
 router.get('/upload', (req,res,next)=>{
